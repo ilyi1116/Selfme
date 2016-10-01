@@ -22,6 +22,12 @@ class SelfmeListController: UIViewController {
         
         return button
     }()
+    
+    lazy var mediaPickerManager: MediaPickerManager = {
+        let manager = MediaPickerManager(withPresentingViewController: self)
+        manager.delegate = self
+        return manager
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +50,14 @@ class SelfmeListController: UIViewController {
     //MARK: - Layout
 
     @objc private func presentImagePickerController() {
+        mediaPickerManager.presentImagePickerController(animated: true)
+    }
+}
+
+//MARK: - MediaPickerManagerDelegate
+extension SelfmeListController: MediaPickerManagerDelegate {
+    func mediaPickerManager(manager: MediaPickerManager, didFinishPickingImage image: UIImage) {
         
     }
-
-
 }
 

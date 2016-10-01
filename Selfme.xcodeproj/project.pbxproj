@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB38F8031DA0331B00A4CEC0 /* MediaPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38F8021DA0331A00A4CEC0 /* MediaPickerManager.swift */; };
 		CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */; };
 		CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */; };
 		CBE2D7AE1D9F9DE1006A064F /* Selfme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7AC1D9F9DE1006A064F /* Selfme.xcdatamodeld */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB38F8021DA0331A00A4CEC0 /* MediaPickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPickerManager.swift; sourceTree = "<group>"; };
 		CBE2D7A21D9F9DE0006A064F /* Selfme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfmeListController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				CBE2D7B11D9F9DE1006A064F /* LaunchScreen.storyboard */,
 				CBE2D7B41D9F9DE1006A064F /* Info.plist */,
 				CBE2D7AC1D9F9DE1006A064F /* Selfme.xcdatamodeld */,
+				CB38F8021DA0331A00A4CEC0 /* MediaPickerManager.swift */,
 			);
 			path = Selfme;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB38F8031DA0331B00A4CEC0 /* MediaPickerManager.swift in Sources */,
 				CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */,
 				CBE2D7AE1D9F9DE1006A064F /* Selfme.xcdatamodeld in Sources */,
 				CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */,
