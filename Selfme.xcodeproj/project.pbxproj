@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */; };
-		CBE2D7A81D9F9DE0006A064F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A71D9F9DE0006A064F /* ViewController.swift */; };
+		CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */; };
 		CBE2D7AE1D9F9DE1006A064F /* Selfme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7AC1D9F9DE1006A064F /* Selfme.xcdatamodeld */; };
 		CBE2D7B01D9F9DE1006A064F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */; };
 		CBE2D7B31D9F9DE1006A064F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE2D7B11D9F9DE1006A064F /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		CBE2D7A21D9F9DE0006A064F /* Selfme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBE2D7A71D9F9DE0006A064F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfmeListController.swift; sourceTree = "<group>"; };
 		CBE2D7AD1D9F9DE1006A064F /* Selfme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Selfme.xcdatamodel; sourceTree = "<group>"; };
 		CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBE2D7B21D9F9DE1006A064F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */,
-				CBE2D7A71D9F9DE0006A064F /* ViewController.swift */,
+				CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */,
 				CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */,
 				CBE2D7B11D9F9DE1006A064F /* LaunchScreen.storyboard */,
 				CBE2D7B41D9F9DE1006A064F /* Info.plist */,
@@ -136,7 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBE2D7A81D9F9DE0006A064F /* ViewController.swift in Sources */,
+				CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */,
 				CBE2D7AE1D9F9DE1006A064F /* Selfme.xcdatamodeld in Sources */,
 				CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */,
 			);
@@ -253,6 +253,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 588HXLYRH9;
 				INFOPLIST_FILE = Selfme/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.claytoncohn.Selfme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -266,6 +267,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 588HXLYRH9;
 				INFOPLIST_FILE = Selfme/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.claytoncohn.Selfme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +294,7 @@
 				CBE2D7B91D9F9DE1006A064F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
