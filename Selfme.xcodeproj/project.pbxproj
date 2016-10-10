@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB12EFBA1DAA052E00B0F0D0 /* PhotoFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EFB91DAA052E00B0F0D0 /* PhotoFilterController.swift */; };
+		CB12EFBC1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EFBB1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift */; };
 		CB38F8031DA0331B00A4CEC0 /* MediaPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38F8021DA0331A00A4CEC0 /* MediaPickerManager.swift */; };
 		CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */; };
 		CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		CB12EFB91DAA052E00B0F0D0 /* PhotoFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoFilterController.swift; path = Selfme/PhotoFilterController.swift; sourceTree = "<group>"; };
+		CB12EFBB1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredImageBuilder.swift; sourceTree = "<group>"; };
 		CB38F8021DA0331A00A4CEC0 /* MediaPickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaPickerManager.swift; path = Selfme/MediaPickerManager.swift; sourceTree = "<group>"; };
 		CBE2D7A21D9F9DE0006A064F /* Selfme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				CB38F8021DA0331A00A4CEC0 /* MediaPickerManager.swift */,
+				CB12EFBB1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */,
 				CBE2D7AE1D9F9DE1006A064F /* Selfme.xcdatamodeld in Sources */,
 				CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */,
+				CB12EFBC1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift in Sources */,
 				CB12EFBA1DAA052E00B0F0D0 /* PhotoFilterController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
