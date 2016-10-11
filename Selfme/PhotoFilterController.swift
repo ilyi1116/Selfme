@@ -12,6 +12,8 @@ class PhotoFilterController: UIViewController {
     
     private var mainImage: UIImage
     
+    private let context: CIContext
+    
     private let photoImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -34,10 +36,21 @@ class PhotoFilterController: UIViewController {
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .white
+        
+        collectionView.register(FilteredImageCell.self, forCellWithReuseIdentifier: FilteredImageCell.reuseIdentifier)
+        
+        collectionView.dataSource = self
+        
         return collectionView
     }()
     
-    init(image: UIImage) {
+    lazy var filteredImages: [CGImage] = {
+        let filteredImageBuilder = FilteredImageBuilder(context: self.context, image: self.mainImage)
+        return filteredImageBuilder.imageWithDefaultFilters()
+    }()
+    
+    init(context: CIContext, image: UIImage) {
+        self.context = context
         self.mainImage = image
         self.photoImageView.image = self.mainImage
         super.init(nibName: nil, bundle: nil)
@@ -77,5 +90,24 @@ class PhotoFilterController: UIViewController {
             photoImageView.leftAnchor.constraint(equalTo: view.leftAnchor),
             photoImageView.rightAnchor.constraint(equalTo: view.rightAnchor)
             ])
+    }
+}
+
+//MARK: - UICollectionViewDataSource
+extension PhotoFilterController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filteredImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilteredImageCell.reuseIdentifier, for: indexPath) as! FilteredImageCell
+        let cgImage = filteredImages[indexPath.row]
+        let image = UIImage(cgImage: cgImage)
+        cell.imageView.image = image
+        return cell
     }
 }

@@ -33,5 +33,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>You can&apos;t use a selfie app without camera access!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You have to use authorize photo libary usage to filter photos.</string>
 </dict>
 </plist>

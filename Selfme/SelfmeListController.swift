@@ -58,6 +58,13 @@ class SelfmeListController: UIViewController {
 extension SelfmeListController: MediaPickerManagerDelegate {
     func mediaPickerManager(manager: MediaPickerManager, didFinishPickingImage image: UIImage) {
         
+        let ciContext = CIContext(options: nil)
+        
+        let photoFilterController = PhotoFilterController(context: ciContext, image: image)
+        let navigationController = UINavigationController(rootViewController: photoFilterController)
+        manager.dismissImagePickerController(animated: true) { 
+            self.present(navigationController, animated: true, completion: nil)
+        }
     }
 }
 
