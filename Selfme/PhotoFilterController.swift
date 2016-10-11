@@ -10,9 +10,13 @@ import UIKit
 
 class PhotoFilterController: UIViewController {
     
-    private var mainImage: UIImage
-    
-    private let context: CIContext
+    var mainImage: UIImage {
+        didSet {
+            photoImageView.image = mainImage
+        }
+    }
+    let context: CIContext
+    let eaglContext: EAGLContext
     
     private let photoImageView: UIImageView = {
        let imageView = UIImageView()
@@ -44,13 +48,14 @@ class PhotoFilterController: UIViewController {
         return collectionView
     }()
     
-    lazy var filteredImages: [CGImage] = {
+    lazy var filteredImages: [CIImage] = {
         let filteredImageBuilder = FilteredImageBuilder(context: self.context, image: self.mainImage)
         return filteredImageBuilder.imageWithDefaultFilters()
     }()
     
-    init(context: CIContext, image: UIImage) {
+    init(context: CIContext, eaglContext: EAGLContext, image: UIImage) {
         self.context = context
+        self.eaglContext = eaglContext
         self.mainImage = image
         self.photoImageView.image = self.mainImage
         super.init(nibName: nil, bundle: nil)
@@ -63,7 +68,11 @@ class PhotoFilterController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(PhotoFilterController.dismissPhotoFilterController))
+        let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(PhotoFilterController.presentMetadataController))
+        
+        navigationItem.leftBarButtonItem = cancelButton
+        navigationItem.rightBarButtonItem = nextButton
     }
     
     // Layout Code
@@ -105,9 +114,33 @@ extension PhotoFilterController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilteredImageCell.reuseIdentifier, for: indexPath) as! FilteredImageCell
-        let cgImage = filteredImages[indexPath.row]
-        let image = UIImage(cgImage: cgImage)
-        cell.imageView.image = image
+        
+        let ciImage = filteredImages[indexPath.row]
+        cell.ciContext = context
+        cell.eaglcontext = eaglContext
+        
+        cell.image = ciImage
+        
         return cell
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+extension PhotoFilterController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let ciImage = filteredImages[indexPath.row]
+        let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
+        mainImage = UIImage(cgImage: cgImage!)
+    }
+}
+
+//MARK: - Navigation
+extension PhotoFilterController {
+    @objc func dismissPhotoFilterController() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func presentMetadataController() {
+        
     }
 }
