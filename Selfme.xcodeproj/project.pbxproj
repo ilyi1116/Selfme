@@ -11,6 +11,7 @@
 		CB12EFBC1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EFBB1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift */; };
 		CB38F8031DA0331B00A4CEC0 /* MediaPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB38F8021DA0331A00A4CEC0 /* MediaPickerManager.swift */; };
 		CB45BC491DAD7CBC005933C3 /* PhotoMetadataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45BC481DAD7CBC005933C3 /* PhotoMetadataController.swift */; };
+		CB45BC4B1DADFB95005933C3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45BC4A1DADFB95005933C3 /* LocationManager.swift */; };
 		CBC650421DAC899700304594 /* FilteredImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC650411DAC899700304594 /* FilteredImageCell.swift */; };
 		CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */; };
 		CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */; };
@@ -24,6 +25,7 @@
 		CB12EFBB1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredImageBuilder.swift; sourceTree = "<group>"; };
 		CB38F8021DA0331A00A4CEC0 /* MediaPickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaPickerManager.swift; path = Selfme/MediaPickerManager.swift; sourceTree = "<group>"; };
 		CB45BC481DAD7CBC005933C3 /* PhotoMetadataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoMetadataController.swift; path = Selfme/PhotoMetadataController.swift; sourceTree = "<group>"; };
+		CB45BC4A1DADFB95005933C3 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		CBC650411DAC899700304594 /* FilteredImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilteredImageCell.swift; path = Selfme/FilteredImageCell.swift; sourceTree = "<group>"; };
 		CBE2D7A21D9F9DE0006A064F /* Selfme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			children = (
 				CB38F8021DA0331A00A4CEC0 /* MediaPickerManager.swift */,
 				CB12EFBB1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift */,
+				CB45BC4A1DADFB95005933C3 /* LocationManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				CB12EFBA1DAA052E00B0F0D0 /* PhotoFilterController.swift in Sources */,
 				CBC650421DAC899700304594 /* FilteredImageCell.swift in Sources */,
 				CB45BC491DAD7CBC005933C3 /* PhotoMetadataController.swift in Sources */,
+				CB45BC4B1DADFB95005933C3 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

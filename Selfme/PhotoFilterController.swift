@@ -128,6 +128,7 @@ extension PhotoFilterController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension PhotoFilterController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Tapped.")
         let ciImage = filteredImages[indexPath.row]
         let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
         mainImage = UIImage(cgImage: cgImage!)
@@ -141,6 +142,7 @@ extension PhotoFilterController {
     }
     
     @objc func presentMetadataController() {
-        
+        let photoMetadataController = PhotoMetadataController(photo: self.mainImage)
+        self.navigationController?.pushViewController(photoMetadataController, animated: true)
     }
 }

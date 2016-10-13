@@ -7,89 +7,148 @@
 //
 
 import UIKit
+import CoreLocation
 
 class PhotoMetadataController: UITableViewController {
+    
+    private let photo: UIImage
+    
+    init(photo: UIImage) {
+        self.photo = photo
+        
+        super.init(style: .grouped)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
+    //MARK: - Metadata Fields
+     lazy var photoImageView: UIImageView = {
+        let imageView = UIImageView(image: self.photo)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var imageViewHeight: CGFloat = {
+        let imgFactor = self.photoImageView.frame.size.height / self.photoImageView.frame.size.width
+        let screenWidth = UIScreen.main.bounds.size.width
+        return screenWidth * imgFactor
+    }()
+    
+    lazy var locationLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Tap to add location"
+        label.textColor = .lightGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var locationManager: LocationManager!
+    var location: CLLocation?
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        activityView.translatesAutoresizingMaskIntoConstraints = false
+        activityView.isHidden = true
+        return activityView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+}
 
-    // MARK: - Table view data source
-
+//MARK: - UITableViewDataSource
+extension PhotoMetadataController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 3
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = UITableViewCell()
+        cell.selectionStyle = .none
+        
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
+            cell.contentView.addSubview(photoImageView)
+            NSLayoutConstraint.activate([
+                photoImageView.topAnchor.constraint(equalTo: cell.contentView.topAnchor),
+                photoImageView.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor),
+                photoImageView.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor),
+                photoImageView.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor)
+                ])
+        case (1, 0):
+            cell.contentView.addSubview(locationLabel)
+            cell.contentView.addSubview(activityIndicator)
+            NSLayoutConstraint.activate([
+                activityIndicator.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+                activityIndicator.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 20.0),
+                locationLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor),
+                locationLabel.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: 16.0),
+                locationLabel.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor),
+                locationLabel.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 20.0)
+                ])
+        default:
+            break
+        }
+        
         return cell
     }
-    */
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+//MARK: - UITableViewDelegate
+extension PhotoMetadataController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0): return imageViewHeight
+        default: return tableView.rowHeight
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (indexPath.section, indexPath.row) {
+        case (1, 0):
+            locationLabel.isHidden = true
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            
+            locationManager = LocationManager()
+            locationManager.onLocationFix = { placemark, error in
+                if let placemark = placemark {
+                    self.location = placemark.location
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
+                    self.locationLabel.isHidden = false
+                    
+                    guard let name = placemark.name, let city = placemark.locality, let area = placemark.administrativeArea else { return }
+                    
+                    self.locationLabel.text = "\(name), \(city), \(area)"
+                } else {
+                    let alertController = UIAlertController(
+                        title: "No Location",
+                        message: "We were unable to get a fix on your location.\nPlease make sure that locationWhenInUse is authorized for Selfme, and try again in a bit.",
+                        preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(
+                        title: "Ok",
+                        style: .cancel,
+                        handler: nil)
+                    alertController.addAction(cancelAction)
+                    UIApplication.topViewController()?.present(alertController, animated: true, completion: nil)
+                }
+            }
+        default: break
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

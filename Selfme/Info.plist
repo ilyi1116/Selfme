@@ -37,5 +37,7 @@
 	<string>You can&apos;t use a selfie app without camera access!</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>You have to use authorize photo libary usage to filter photos.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>So you can map out your selfies!</string>
 </dict>
 </plist>
