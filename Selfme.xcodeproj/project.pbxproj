@@ -18,6 +18,12 @@
 		CBE2D7AE1D9F9DE1006A064F /* Selfme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7AC1D9F9DE1006A064F /* Selfme.xcdatamodeld */; };
 		CBE2D7B01D9F9DE1006A064F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */; };
 		CBE2D7B31D9F9DE1006A064F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE2D7B11D9F9DE1006A064F /* LaunchScreen.storyboard */; };
+		CBF881EF1DB022F000BB3ABC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF881EE1DB022F000BB3ABC /* CoreDataController.swift */; };
+		CBF881F21DB023B600BB3ABC /* Selfme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBF881F01DB023B600BB3ABC /* Selfme.xcdatamodeld */; };
+		CBF881F41DB037C100BB3ABC /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF881F31DB037C100BB3ABC /* Photo.swift */; };
+		CBF881F61DB0386000BB3ABC /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF881F51DB0386000BB3ABC /* Tag.swift */; };
+		CBF881F81DB0388300BB3ABC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF881F71DB0388300BB3ABC /* Location.swift */; };
+		CBF881FA1DB0910E00BB3ABC /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF881F91DB0910E00BB3ABC /* PhotoDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBE2D7B21D9F9DE1006A064F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBE2D7B41D9F9DE1006A064F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBF881EE1DB022F000BB3ABC /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		CBF881F11DB023B600BB3ABC /* Selfme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Selfme.xcdatamodel; sourceTree = "<group>"; };
+		CBF881F31DB037C100BB3ABC /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Photo.swift; path = Selfme/Photo.swift; sourceTree = "<group>"; };
+		CBF881F51DB0386000BB3ABC /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		CBF881F71DB0388300BB3ABC /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		CBF881F91DB0910E00BB3ABC /* PhotoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,11 @@
 		CB12EFB61DAA04C100B0F0D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CBF881F01DB023B600BB3ABC /* Selfme.xcdatamodeld */,
+				CBF881F31DB037C100BB3ABC /* Photo.swift */,
+				CBF881F51DB0386000BB3ABC /* Tag.swift */,
+				CBF881F71DB0388300BB3ABC /* Location.swift */,
+				CBF881F91DB0910E00BB3ABC /* PhotoDataSource.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -78,6 +95,7 @@
 				CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */,
 				CB12EFB91DAA052E00B0F0D0 /* PhotoFilterController.swift */,
 				CB45BC481DAD7CBC005933C3 /* PhotoMetadataController.swift */,
+				CBF881EE1DB022F000BB3ABC /* CoreDataController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -186,15 +204,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF881F41DB037C100BB3ABC /* Photo.swift in Sources */,
 				CB38F8031DA0331B00A4CEC0 /* MediaPickerManager.swift in Sources */,
+				CBF881F21DB023B600BB3ABC /* Selfme.xcdatamodeld in Sources */,
+				CBF881FA1DB0910E00BB3ABC /* PhotoDataSource.swift in Sources */,
 				CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */,
 				CBE2D7AE1D9F9DE1006A064F /* Selfme.xcdatamodeld in Sources */,
 				CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */,
+				CBF881F81DB0388300BB3ABC /* Location.swift in Sources */,
 				CB12EFBC1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift in Sources */,
 				CB12EFBA1DAA052E00B0F0D0 /* PhotoFilterController.swift in Sources */,
 				CBC650421DAC899700304594 /* FilteredImageCell.swift in Sources */,
 				CB45BC491DAD7CBC005933C3 /* PhotoMetadataController.swift in Sources */,
+				CBF881EF1DB022F000BB3ABC /* CoreDataController.swift in Sources */,
 				CB45BC4B1DADFB95005933C3 /* LocationManager.swift in Sources */,
+				CBF881F61DB0386000BB3ABC /* Tag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +385,16 @@
 				CBE2D7AD1D9F9DE1006A064F /* Selfme.xcdatamodel */,
 			);
 			currentVersion = CBE2D7AD1D9F9DE1006A064F /* Selfme.xcdatamodel */;
+			path = Selfme.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		CBF881F01DB023B600BB3ABC /* Selfme.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CBF881F11DB023B600BB3ABC /* Selfme.xcdatamodel */,
+			);
+			currentVersion = CBF881F11DB023B600BB3ABC /* Selfme.xcdatamodel */;
 			path = Selfme.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
