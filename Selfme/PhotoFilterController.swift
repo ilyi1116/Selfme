@@ -65,6 +65,10 @@ class PhotoFilterController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,7 +133,6 @@ extension PhotoFilterController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension PhotoFilterController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tapped.")
         let ciImage = filteredImages[indexPath.row]
         let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
         mainImage = UIImage(cgImage: cgImage!)

@@ -61,6 +61,10 @@ class PhotoMetadataController: UITableViewController {
         activityView.isHidden = true
         return activityView
     }()
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

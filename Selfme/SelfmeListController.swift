@@ -49,20 +49,35 @@ class SelfmeListController: UIViewController {
         
         return collectionView
     }()
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        setupNavBar()
         collectionView.dataSource = dataSource
+        self.automaticallyAdjustsScrollViewInsets = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        //self.navigationController?.navigationBar.isHidden = true
     }
     
     //MARK: - UIImagePickerController
     
     override func viewWillLayoutSubviews() {
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cameraButton)
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            collectionView.topAnchor.constraint(equalTo: self.navigationController?.navigationBar.bottomAnchor ?? view.topAnchor),
+            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             cameraButton.leftAnchor.constraint(equalTo: view.leftAnchor),
             cameraButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             cameraButton.rightAnchor.constraint(equalTo: view.rightAnchor),
@@ -92,3 +107,18 @@ extension SelfmeListController: MediaPickerManagerDelegate {
     }
 }
 
+//MARK: - Navigation
+extension SelfmeListController {
+    func setupNavBar() {
+        let sortTagsButton = UIBarButtonItem(
+            title: "Tags",
+            style: .plain,
+            target: self,
+            action: #selector(SelfmeListController.presentSortController))
+        navigationItem.setRightBarButtonItems([sortTagsButton], animated: true)
+    }
+    
+    func presentSortController() {
+        
+    }
+}
