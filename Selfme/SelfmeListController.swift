@@ -29,10 +29,32 @@ class SelfmeListController: UIViewController {
         manager.delegate = self
         return manager
     }()
+    
+    lazy var dataSource: PhotoDataSource = {
+        return PhotoDataSource(fetchRequest: Photo.allPhotosRequest, collectionView:self.collectionView)
+    }()
+    
+    lazy var collectionView: UICollectionView = {
+      let collectionViewLayout = UICollectionViewFlowLayout()
+        
+        let screenWidth = UIScreen.main.bounds.size.width
+        let paddingDistance: CGFloat = 16.0
+        let itemSize = (screenWidth - paddingDistance) / 2.0
+        
+        collectionViewLayout.itemSize = CGSize(width: itemSize, height: itemSize)
+        let zero = CGRect(x: 0, y: 0, width: 0, height: 0)
+        let collectionView = UICollectionView(frame: zero, collectionViewLayout: collectionViewLayout)
+        collectionView.backgroundColor = .white
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.reuseIdentifier)
+        
+        return collectionView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        collectionView.dataSource = dataSource
     }
     
     //MARK: - UIImagePickerController
@@ -50,7 +72,7 @@ class SelfmeListController: UIViewController {
     
     //MARK: - Layout
 
-    @objc private func presentImagePickerController() {
+    @objc func presentImagePickerController() {
         mediaPickerManager.presentImagePickerController(animated: true)
     }
 }

@@ -25,7 +25,7 @@ class LocationManager: NSObject {
         }
     }
     
-    private func getPermission() {
+    func getPermission() {
         manager.requestWhenInUseAuthorization()
     }
 }

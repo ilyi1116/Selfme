@@ -15,8 +15,8 @@ protocol MediaPickerManagerDelegate: class {
 
 class MediaPickerManager: NSObject {
     
-    private let imagePicker = UIImagePickerController()
-    private let presentingViewController: UIViewController
+    let imagePicker = UIImagePickerController()
+    let presentingViewController: UIViewController
     
     weak var delegate: MediaPickerManagerDelegate?
     

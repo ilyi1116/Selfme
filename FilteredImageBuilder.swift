@@ -12,7 +12,7 @@ import UIKit
 
 final class FilteredImageBuilder {
     
-    private struct PhotoFilter {
+    struct PhotoFilter {
         
         static let kColorClamp = "CIColorClamp"
         static let kColorControls = "CIColorControls"
@@ -47,9 +47,9 @@ final class FilteredImageBuilder {
         }
     }
     
-    private let image: UIImage
+    let image: UIImage
     
-    private let context: CIContext
+    let context: CIContext
     
     init(context: CIContext, image: UIImage) {
         self.context = context

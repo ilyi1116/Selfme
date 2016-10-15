@@ -18,13 +18,13 @@ class PhotoFilterController: UIViewController {
     let context: CIContext
     let eaglContext: EAGLContext
     
-    private let photoImageView: UIImageView = {
+    let photoImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private lazy var filterHeaderLabel: UILabel = {
+    lazy var filterHeaderLabel: UILabel = {
        let label = UILabel()
         label.text = "Select a filter"
         label.textAlignment = .center
