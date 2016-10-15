@@ -15,7 +15,6 @@
 		CBC650421DAC899700304594 /* FilteredImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC650411DAC899700304594 /* FilteredImageCell.swift */; };
 		CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */; };
 		CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */; };
-		CBE2D7AE1D9F9DE1006A064F /* Selfme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7AC1D9F9DE1006A064F /* Selfme.xcdatamodeld */; };
 		CBE2D7B01D9F9DE1006A064F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */; };
 		CBE2D7B31D9F9DE1006A064F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE2D7B11D9F9DE1006A064F /* LaunchScreen.storyboard */; };
 		CBF3CD121DB12A6200CA86A5 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3CD111DB12A6200CA86A5 /* PhotoCell.swift */; };
@@ -38,7 +37,6 @@
 		CBE2D7A21D9F9DE0006A064F /* Selfme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2D7A51D9F9DE0006A064F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelfmeListController.swift; path = Selfme/SelfmeListController.swift; sourceTree = "<group>"; };
-		CBE2D7AD1D9F9DE1006A064F /* Selfme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Selfme.xcdatamodel; sourceTree = "<group>"; };
 		CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBE2D7B21D9F9DE1006A064F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBE2D7B41D9F9DE1006A064F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */,
 				CBE2D7B11D9F9DE1006A064F /* LaunchScreen.storyboard */,
 				CBE2D7B41D9F9DE1006A064F /* Info.plist */,
-				CBE2D7AC1D9F9DE1006A064F /* Selfme.xcdatamodeld */,
 			);
 			path = Selfme;
 			sourceTree = "<group>";
@@ -216,7 +213,6 @@
 				CBF881FA1DB0910E00BB3ABC /* PhotoDataSource.swift in Sources */,
 				CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */,
 				CBF3CD121DB12A6200CA86A5 /* PhotoCell.swift in Sources */,
-				CBE2D7AE1D9F9DE1006A064F /* Selfme.xcdatamodeld in Sources */,
 				CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */,
 				CBF881F81DB0388300BB3ABC /* Location.swift in Sources */,
 				CB12EFBC1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift in Sources */,
@@ -387,16 +383,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CBE2D7AC1D9F9DE1006A064F /* Selfme.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CBE2D7AD1D9F9DE1006A064F /* Selfme.xcdatamodel */,
-			);
-			currentVersion = CBE2D7AD1D9F9DE1006A064F /* Selfme.xcdatamodel */;
-			path = Selfme.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		CBF881F01DB023B600BB3ABC /* Selfme.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

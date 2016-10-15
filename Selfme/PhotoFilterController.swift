@@ -44,6 +44,7 @@ class PhotoFilterController: UIViewController {
         collectionView.register(FilteredImageCell.self, forCellWithReuseIdentifier: FilteredImageCell.reuseIdentifier)
         
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         return collectionView
     }()
