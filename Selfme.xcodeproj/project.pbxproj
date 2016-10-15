@@ -17,6 +17,7 @@
 		CBE2D7A81D9F9DE0006A064F /* SelfmeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2D7A71D9F9DE0006A064F /* SelfmeListController.swift */; };
 		CBE2D7B01D9F9DE1006A064F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */; };
 		CBE2D7B31D9F9DE1006A064F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE2D7B11D9F9DE1006A064F /* LaunchScreen.storyboard */; };
+		CBEF61061DB29DEF000A4E59 /* PhotoSortListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61051DB29DEF000A4E59 /* PhotoSortListController.swift */; };
 		CBF3CD121DB12A6200CA86A5 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3CD111DB12A6200CA86A5 /* PhotoCell.swift */; };
 		CBF881EF1DB022F000BB3ABC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF881EE1DB022F000BB3ABC /* CoreDataController.swift */; };
 		CBF881F21DB023B600BB3ABC /* Selfme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBF881F01DB023B600BB3ABC /* Selfme.xcdatamodeld */; };
@@ -40,6 +41,7 @@
 		CBE2D7AF1D9F9DE1006A064F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBE2D7B21D9F9DE1006A064F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBE2D7B41D9F9DE1006A064F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBEF61051DB29DEF000A4E59 /* PhotoSortListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSortListController.swift; sourceTree = "<group>"; };
 		CBF3CD111DB12A6200CA86A5 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CBF881EE1DB022F000BB3ABC /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		CBF881F11DB023B600BB3ABC /* Selfme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Selfme.xcdatamodel; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				CB45BC481DAD7CBC005933C3 /* PhotoMetadataController.swift */,
 				CBF881EE1DB022F000BB3ABC /* CoreDataController.swift */,
 				CBF881FB1DB091B000BB3ABC /* PhotoFetchedResultsController.swift */,
+				CBEF61051DB29DEF000A4E59 /* PhotoSortListController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				CBE2D7A61D9F9DE0006A064F /* AppDelegate.swift in Sources */,
 				CBF881F81DB0388300BB3ABC /* Location.swift in Sources */,
 				CB12EFBC1DAA0BCB00B0F0D0 /* FilteredImageBuilder.swift in Sources */,
+				CBEF61061DB29DEF000A4E59 /* PhotoSortListController.swift in Sources */,
 				CBF881FC1DB091B000BB3ABC /* PhotoFetchedResultsController.swift in Sources */,
 				CB12EFBA1DAA052E00B0F0D0 /* PhotoFilterController.swift in Sources */,
 				CBC650421DAC899700304594 /* FilteredImageCell.swift in Sources */,
