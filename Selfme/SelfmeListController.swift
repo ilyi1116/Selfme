@@ -8,6 +8,7 @@
 
 import UIKit
 import OpenGLES
+import CoreData
 
 let kButtonTitle = "Camera"
 
@@ -73,6 +74,9 @@ class SelfmeListController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cameraButton)
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        
         NSLayoutConstraint.activate([
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             collectionView.topAnchor.constraint(equalTo: self.navigationController?.navigationBar.bottomAnchor ?? view.topAnchor),
@@ -124,6 +128,21 @@ extension SelfmeListController {
         let sortItemSelector = SortItemSelector(sortItems: tagDataSource.results)
         
         let sortController = PhotoSortListController(dataSource: tagDataSource, sortItemSelector: sortItemSelector)
+        
+        sortController.onSortSelection = { checkedItems in
+            if !checkedItems.isEmpty {
+                var predicates = [NSPredicate]()
+                for tag in checkedItems {
+                    let predicate = NSPredicate(format: "%K CONTAINS %@", "tags.title", tag.title)
+                    predicates.append(predicate)
+                }
+                let compoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: predicates)
+                self.dataSource.performFetch(withPredicte: compoundPredicate)
+            } else {
+                self.dataSource.performFetch(withPredicte: nil)
+            }
+        }
+        
         let navController = UINavigationController(rootViewController: sortController)
         
         present(navController, animated: true, completion: nil)

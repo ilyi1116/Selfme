@@ -22,6 +22,11 @@ class PhotoDataSource: NSObject {
         
         super.init()
     }
+    
+    func performFetch(withPredicte predicate: NSPredicate?) {
+        self.fetchedResultsController.performFetch(withPredicate: predicate)
+        collectionView.reloadData()
+    }
 }
 
 //MARK: - UICollectionViewDataSource

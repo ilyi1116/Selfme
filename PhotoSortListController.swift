@@ -14,6 +14,8 @@ class PhotoSortListController<SortType: CustomTitleConvertible>: UITableViewCont
     let dataSource: SortableDataSource<SortType>
     let sortItemSelector: SortItemSelector<SortType>
     
+    var onSortSelection: ((Set<SortType>) -> Void)?
+    
     init(dataSource: SortableDataSource<SortType>, sortItemSelector: SortItemSelector<SortType>) {
         self.dataSource = dataSource
         self.sortItemSelector = sortItemSelector
@@ -44,6 +46,8 @@ class PhotoSortListController<SortType: CustomTitleConvertible>: UITableViewCont
     }
     
     @objc fileprivate func dismissPhotoSortListController() {
+        guard let onSortSelection = onSortSelection else { return }
+        onSortSelection(sortItemSelector.checkedItems)
         dismiss(animated: true, completion: nil)
     }
 }

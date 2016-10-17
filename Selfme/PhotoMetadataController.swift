@@ -142,7 +142,7 @@ extension PhotoMetadataController {
 extension PhotoMetadataController {
     func tagsFromTextField() ->  [String] {
         guard let tags = tagsTextField.text else { return [] }
-        let csvSubSeqs = tags.characters.split { $0 == "," || $0 == " " }
+        let csvSubSeqs = tags.characters.split { $0 == "," }
         let csvStrings = csvSubSeqs.map(String.init)
         let lowercaseTags = csvStrings.map { $0.lowercased() }
         return lowercaseTags.map { $0.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines) }
