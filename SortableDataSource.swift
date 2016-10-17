@@ -10,15 +10,13 @@ import Foundation
 import UIKit
 import CoreData
 
-protocol CustomTitleConverter {
+protocol CustomTitleConvertible {
     var title: String { get }
 }
 
-extension Tag: CustomTitleConverter {
-    
-}
+extension Tag: CustomTitleConvertible {  }
 
-class SortableDataSource<SortType: CustomTitleConverter>: NSObject, UITableViewDataSource where SortType: NSManagedObject {
+class SortableDataSource<SortType: CustomTitleConvertible>: NSObject, UITableViewDataSource where SortType: NSManagedObject {
     
     let kReuseIdentifier = "sortableItemCell"
     

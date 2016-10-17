@@ -52,5 +52,7 @@ class SortItemSelector<SortType: NSManagedObject>: NSObject, UITableViewDelegate
             }
         default: break
         }
+        
+        print(checkedItems.description)
     }
 }
