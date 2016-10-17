@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class PhotoMetadataController: UITableViewController {
+class PhotoMetadataController: UITableViewController, UITextFieldDelegate {
     
     let photo: UIImage
     
@@ -52,6 +52,7 @@ class PhotoMetadataController: UITableViewController {
         let textField = UITextField()
         textField.placeholder = "Summer, Fun, Booze, etc."
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.delegate = self
         return textField
     }()
     
@@ -196,9 +197,21 @@ extension PhotoMetadataController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return "Photo"
-        case 1: return "Enter a location"
-        case 2: return "Enter tags"
+        case 1: return "Location"
+        case 2: return "Tags"
         default: return nil
         }
+    }
+    
+    //MARK: - UITextFieldDelegate
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {  }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
