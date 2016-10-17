@@ -36,15 +36,18 @@ class SelfmeListController: UIViewController {
     }()
     
     lazy var collectionView: UICollectionView = {
-      let collectionViewLayout = UICollectionViewFlowLayout()
+      let layout = UICollectionViewFlowLayout()
         
         let screenWidth = UIScreen.main.bounds.size.width
-        let paddingDistance: CGFloat = 16.0
-        let itemSize = (screenWidth - paddingDistance) / 2.0
+        let itemSize = CGSize(width: screenWidth / 3 - 1, height: screenWidth / 3 - 1)
         
-        collectionViewLayout.itemSize = CGSize(width: itemSize, height: itemSize)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.itemSize = itemSize
+        layout.minimumInteritemSpacing = 1
+        layout.minimumLineSpacing = 1
+        
         let zero = CGRect(x: 0, y: 0, width: 0, height: 0)
-        let collectionView = UICollectionView(frame: zero, collectionViewLayout: collectionViewLayout)
+        let collectionView = UICollectionView(frame: zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.reuseIdentifier)
         
@@ -75,8 +78,6 @@ class SelfmeListController: UIViewController {
         view.addSubview(cameraButton)
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        
         NSLayoutConstraint.activate([
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             collectionView.topAnchor.constraint(equalTo: self.navigationController?.navigationBar.bottomAnchor ?? view.topAnchor),
@@ -87,7 +88,7 @@ class SelfmeListController: UIViewController {
             cameraButton.rightAnchor.constraint(equalTo: view.rightAnchor),
             cameraButton.heightAnchor.constraint(equalToConstant: 56.0)
             ])
-    }
+        }
     
     //MARK: - Layout
 
