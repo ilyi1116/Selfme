@@ -7,26 +7,36 @@
 //
 
 import UIKit
+import CoreData
 
-class PhotoSortListController: UITableViewController {
+class PhotoSortListController<SortType: CustomTitleConverter>: UITableViewController where SortType: NSManagedObject {
+    
+    let dataSource: SortableDataSource<SortType>
+    let sortItemSelector: SortItemSelector<SortType>
+    
+    init(dataSource: SortableDataSource<SortType>, sortItemSelector: SortItemSelector<SortType>) {
+        self.dataSource = dataSource
+        self.sortItemSelector = sortItemSelector
+        super.init(style: .grouped)
+        
+        tableView.dataSource = dataSource
+        tableView.delegate = sortItemSelector
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        setupNavigation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-}
-
-extension PhotoSortListController {
     
     fileprivate func setupNavigation() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(PhotoSortListController.dismissPhotoSortListController))
@@ -34,7 +44,11 @@ extension PhotoSortListController {
     }
     
     @objc fileprivate func dismissPhotoSortListController() {
-        
+        dismiss(animated: true, completion: nil)
     }
+}
+
+extension PhotoSortListController {
+    
 }
      

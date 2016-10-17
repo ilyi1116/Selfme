@@ -109,7 +109,7 @@ extension SelfmeListController: MediaPickerManagerDelegate {
 
 //MARK: - Navigation
 extension SelfmeListController {
-    func setupNavBar() {
+    fileprivate func setupNavBar() {
         let sortTagsButton = UIBarButtonItem(
             title: "Tags",
             style: .plain,
@@ -118,7 +118,14 @@ extension SelfmeListController {
         navigationItem.setRightBarButtonItems([sortTagsButton], animated: true)
     }
     
-    func presentSortController() {
+    @objc fileprivate func presentSortController() {
+        let tagDataSource = SortableDataSource<Tag>(fetchRequest: Tag.allTagsRequest, managedObjectContext: CoreDataController.sharedInstance.managedObjectContext)
         
+        let sortItemSelector = SortItemSelector(sortItems: tagDataSource.results)
+        
+        let sortController = PhotoSortListController(dataSource: tagDataSource, sortItemSelector: sortItemSelector)
+        let navController = UINavigationController(rootViewController: sortController)
+        
+        present(navController, animated: true, completion: nil)
     }
 }
