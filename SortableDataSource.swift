@@ -71,10 +71,7 @@ class SortableDataSource<SortType: CustomTitleConvertible>: NSObject, UITableVie
             cell.textLabel?.text = "All \(SortType.self)s"
             cell.accessoryType = .checkmark
         case (1, _):
-            guard let sortItem = fetchedResultsController.fetchedObjects?[indexPath.row] as? SortType
-            else {
-                break
-            }
+            guard let sortItem = fetchedResultsController.fetchedObjects?[indexPath.row] as? SortType else { break}
             cell.textLabel?.text = sortItem.title
         default: break
         }
