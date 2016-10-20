@@ -124,10 +124,9 @@ extension SelfmeListController {
     }
     
     @objc fileprivate func presentSortController() {
-        let tagDataSource = SortableDataSource<Tag>(fetchRequest: Tag.allTagsRequest, managedObjectContext: CoreDataController.sharedInstance.managedObjectContext)
-        
+        let tagDataSource = SortableDataSource<Tag>(fetchRequest: Tag.allTagsRequest
+            , managedObjectContext: CoreDataController.sharedInstance.managedObjectContext)
         let sortItemSelector = SortItemSelector(sortItems: tagDataSource.results)
-        
         let sortController = PhotoSortListController(dataSource: tagDataSource, sortItemSelector: sortItemSelector)
         
         sortController.onSortSelection = { checkedItems in

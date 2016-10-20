@@ -21,7 +21,8 @@ class SortableDataSource<SortType: CustomTitleConvertible>: NSObject, UITableVie
     let kReuseIdentifier = "sortableItemCell"
     
     fileprivate let fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>
-    
+    fileprivate var allTags: NSMutableArray = []
+
     var results: [SortType] {
         return fetchedResultsController.fetchedObjects as! [SortType]
     }
@@ -30,13 +31,13 @@ class SortableDataSource<SortType: CustomTitleConvertible>: NSObject, UITableVie
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         
         super.init()
-        
         executeFetch()
     }
     
     func executeFetch() {
         do {
             try fetchedResultsController.performFetch()
+            setAllTags()
         } catch let error as NSError {
             let alertController = UIAlertController(
                 title: "Error",
@@ -51,13 +52,23 @@ class SortableDataSource<SortType: CustomTitleConvertible>: NSObject, UITableVie
         }
     }
     
+    func setAllTags() {
+        for (i, _) in fetchedResultsController.fetchedObjects!.enumerated() {
+            guard let sortItem = fetchedResultsController.fetchedObjects?[i] as? SortType else { break}
+            if !allTags.contains(sortItem.title) {
+                allTags.add(sortItem.title)
+            }
+        }
+        print(allTags)
+    }
+    
     //MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int { return 2 }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
-        case 1: return fetchedResultsController.fetchedObjects?.count ?? 0
+        case 1: return allTags.count
         default: return 0
         }
     }
@@ -65,14 +76,13 @@ class SortableDataSource<SortType: CustomTitleConvertible>: NSObject, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: kReuseIdentifier)
         cell.selectionStyle = .none
-        
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             cell.textLabel?.text = "All \(SortType.self)s"
             cell.accessoryType = .checkmark
         case (1, _):
-            guard let sortItem = fetchedResultsController.fetchedObjects?[indexPath.row] as? SortType else { break}
-            cell.textLabel?.text = sortItem.title
+            cell.textLabel?.text = allTags[indexPath.row] as? String
+            
         default: break
         }
         return cell

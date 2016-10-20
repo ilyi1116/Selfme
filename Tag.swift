@@ -18,6 +18,14 @@ class Tag: NSManagedObject {
         return request
     }()
     
+    static var uniqueTagsRequest: NSFetchRequest<NSFetchRequestResult> = {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Tag.entityName)
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        request.resultType = .dictionaryResultType
+        request.returnsDistinctResults = true
+        return request
+    }()
+    
     class func tag(withTitle title: String) -> Tag {
         let tag = NSEntityDescription.insertNewObject(forEntityName: Tag.entityName, into: CoreDataController.sharedInstance.managedObjectContext) as! Tag
         tag.title = title
